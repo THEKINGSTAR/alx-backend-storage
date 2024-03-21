@@ -8,8 +8,8 @@
 -- Your script can be executed on any database
 
 SELECT band_name,
-       (split - formed) AS lifespan
+       -- style,formed, split,
+       (COALESCE(split,2022)- formed) AS lifespan
 FROM metal_bands
-WHERE style = 'Glam rock' and formed <= 2022
+WHERE style  LIKE '%Glam%' AND style LIKE '%rock%'
 ORDER BY lifespan DESC;
-
