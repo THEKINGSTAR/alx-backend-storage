@@ -8,11 +8,8 @@
 -- Your script can be executed on any database
 
 SELECT band_name,
-       (CASE
-	WHEN split IS NOT NULL THEN split - formed
-	ELSE 2022 - formed
-	END) AS lifespan
+       (split - formed) AS lifespan
 FROM metal_bands
-WHERE style = 'Glam rock'
+WHERE style = 'Glam rock' and formed <= 2022
 ORDER BY lifespan DESC;
 
