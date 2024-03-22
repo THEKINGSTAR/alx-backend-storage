@@ -10,8 +10,9 @@ ON orders
 FOR EACH ROW
 BEGIN
     UPDATE items
-    SET quantity = quantity - NEW.quantity
-    WHERE item_id = NEW.item_id;
+    SET quantity = quantity - NEW.number
+        WHERE items.item_name = NEW.item_name;
+
 END;
 //
 DELIMITER ;
