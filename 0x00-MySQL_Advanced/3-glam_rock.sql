@@ -9,7 +9,7 @@
 
 SELECT band_name,
        -- style,formed, split,
-       (COALESCE(split,2022)- formed) AS lifespan
+       (IFNULL(split,2022)- formed) AS lifespan
 FROM metal_bands
 WHERE style  LIKE '%Glam%' AND style LIKE '%rock%'
 ORDER BY lifespan DESC;
