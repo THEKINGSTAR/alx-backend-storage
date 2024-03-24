@@ -92,9 +92,8 @@ $
 ```
 # ```Tasks```
 ## ```0. We are all unique! (mandatory)```
-### Write a SQL script that creates a table users following these requirements:
-
-With these attributes:
+* ```### Write a SQL script that creates a table users following these requirements:```
+>- With these attributes:
 id, integer, never null, auto increment and primary key
 email, string (255 characters), never null and unique
 name, string (255 characters)
@@ -130,9 +129,8 @@ bob@dylan:~$
 >- File: 0-```uniq_users.sql```
    
 ## ```1. In and not out (mandatory)```
-### Write a SQL script that creates a table users following these requirements:
-
-With these attributes:
+* ```### Write a SQL script that creates a table users following these requirements:```
+>- With these attributes:
 id, integer, never null, auto increment and primary key
 email, string (255 characters), never null and unique
 name, string (255 characters)
@@ -174,9 +172,8 @@ bob@dylan:~$
 ## ```2. Best band ever! (mandatory)```
 ### Write a SQL script that ranks country origins of bands, ordered by the number of (non-unique) fans
 
-Requirements:
-
-Import this table dump: metal_bands.sql.zip
+* ```Requirements:```
+>- Import this table dump: metal_bands.sql.zip
 Column names must be: origin and nb_fans
 Your script can be executed on any database
 Context: Calculate/compute something is always power intensive… better to distribute the load!
@@ -206,9 +203,8 @@ bob@dylan:~$
 ## ```3. Old school band (mandatory)```
 ### Write a SQL script that lists all bands with Glam rock as their main style, ranked by their longevity
 
-Requirements:
-
-Import this table dump: metal_bands.sql.zip
+* ```Requirements:```
+>- Import this table dump: metal_bands.sql.zip
 Column names must be: band_name and lifespan (in years until 2022 - please use 2022 instead of YEAR(CURDATE()))
 You should use attributes formed and split for computing the lifespan
 Your script can be executed on any database
@@ -304,7 +300,7 @@ bob@dylan:~$
 >- File: 4-```store.sql```
    
 ## ```5. Email validation to sent (mandatory)```
-### Write a SQL script that creates a trigger that resets the attribute valid_email only when the email has been changed.
+### Write a SQL script that creates a trigger that resets the attribute ```valid_email``` only when the ```email``` has been changed.
 
 Context: Nothing related to MySQL, but perfect for user email validation - distribute the logic to the database itself!
 ```shell
@@ -377,13 +373,12 @@ bob@dylan:~$
 ## ```6. Add bonus (mandatory)```
 ### Write a SQL script that creates a stored procedure AddBonus that adds a new correction for a student.
 
-Requirements:
-
-Procedure AddBonus is taking 3 inputs (in this order):
-user_id, a users.id value (you can assume user_id is linked to an existing users)
-project_name, a new or already exists projects - if no projects.name found in the table, you should create it
-score, the score value for the correction
-Context: Write code in SQL is a nice level up!
+* ```* Requirements:```
+>- >- Procedure AddBonus is taking 3 inputs (in this order):
+>- ```user_id```, a ```users```.id value (you can assume user_id is linked to an existing users)
+>- ```project_name```, a new or already exists projects - if no projects.name found in the table, you should create it
+>- ```score```, the score value for the correction
+>- Context: Write code in SQL is a nice level up!
 ```shell
 bob@dylan:~$ cat 6-init.sql
 -- Initial
@@ -499,9 +494,8 @@ bob@dylan:~$
 ## ```7. Average score (mandatory)```
 ### Write a SQL script that creates a stored procedure ComputeAverageScoreForUser that computes and store the average score for a student. Note: An average score can be a decimal
 
-Requirements:
-
-Procedure ComputeAverageScoreForUser is taking 1 input:
+* ```Requirements:```
+>- Procedure ComputeAverageScoreForUser is taking 1 input:
 user_id, a users.id value (you can assume user_id is linked to an existing users)
 ```shell
 bob@dylan:~$ cat 7-init.sql
@@ -598,9 +592,8 @@ bob@dylan:~$
 ## ```8. Optimize simple search (mandatory)```
 ### Write a SQL script that creates an index idx_name_first on the table names and the first letter of name.
 
-Requirements:
-
-Import this table dump: names.sql.zip
+* ```Requirements:```
+>- Import this table dump: names.sql.zip
 Only the first letter of name must be indexed
 Context: Index is not the solution for any performance issue, but well used, it’s really powerful!
 ```shell
@@ -653,9 +646,8 @@ bob@dylan:~$
 ## ```9. Optimize search and score (mandatory)```
 ### Write a SQL script that creates an index idx_name_first_score on the table names and the first letter of name and the score.
 
-Requirements:
-
-Import this table dump: names.sql.zip
+* ```Requirements:```
+>- Import this table dump: names.sql.zip
 Only the first letter of name AND score must be indexed
 ```shell
 bob@dylan:~$ cat names.sql | mysql -uroot -p holberton
@@ -706,12 +698,11 @@ bob@dylan:~$
 >- File: 9-```index_name_score.sql```
    
 ## ```10. Safe divide (mandatory)```
-### Write a SQL script that creates a function SafeDiv that divides (and returns) the first by the second number or returns 0 if the second number is equal to 0.
+### Write a SQL script that creates a function ```SafeDiv``` that divides (and returns) the first by the second number or returns 0 if the second number is equal to 0.
 
-Requirements:
-
-You must create a function
-The function SafeDiv takes 2 arguments:
+* ```Requirements:```
+>- You must create a function
+The function ```SafeDiv``` takes 2 arguments:
 a, INT
 b, INT
 And returns a / b or 0 if b == 0
@@ -767,11 +758,10 @@ bob@dylan:~$
 ## ```11. No table for a meeting (mandatory)```
 ### Write a SQL script that creates a view need_meeting that lists all students that have a score under 80 (strict) and no last_meeting or more than 1 month.
 
-Requirements:
-
-The view need_meeting should return all students name when:
+* ```Requirements:```
+>- The view need_meeting should return all students name when:
 They score are under (strict) to 80
-AND no last_meeting date OR more than a month
+AND no ```last_meeting``` date OR more than a month
 ```shell
 bob@dylan:~$ cat 11-init.sql
 -- Initial
@@ -870,15 +860,14 @@ bob@dylan:~$
 >- File: 11-```need_meeting.sql```
 
 ## ```12. Average weighted score (#advanced)```
-Write a SQL script that creates a stored procedure ComputeAverageWeightedScoreForUser that computes and store the average weighted score for a student.
+Write a SQL script that creates a stored procedure ```ComputeAverageWeightedScoreForUser``` that computes and store the average weighted score for a student.
 
-Requirements:
-
-Procedure ComputeAverageScoreForUser is taking 1 input:
-user_id, a users.id value (you can assume user_id is linked to an existing users)
+* ```Requirements:```
+>- Procedure ```ComputeAverageScoreForUser``` is taking 1 input:
+```user_id```, a ```users.id``` value (you can assume ```user_id``` is linked to an existing users)
 Tips:
 
-Calculate-Weighted-Average
+```Calculate-Weighted-Average```
 ```shell
 bob@dylan:~$ cat 100-init.sql
 -- Initial
@@ -974,14 +963,13 @@ bob@dylan:~$
 >- File: ```100-average_weighted_score.sql```
   
 ## ```13. Average weighted score for all! (#advanced)```
-Write a SQL script that creates a stored procedure ComputeAverageWeightedScoreForUsers that computes and store the average weighted score for all students.
+Write a SQL script that creates a stored procedure ```ComputeAverageWeightedScoreForUsers``` that computes and store the average weighted score for all students.
 
-Requirements:
-
-Procedure ComputeAverageWeightedScoreForUsers is not taking any input.
+* ```Requirements:```
+>- Procedure ```ComputeAverageWeightedScoreForUsers``` is not taking any input.
 Tips:
 
-Calculate-Weighted-Average
+```Calculate-Weighted-Average```
 ```shell
 bob@dylan:~$ cat 101-init.sql
 -- Initial
