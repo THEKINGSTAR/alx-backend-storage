@@ -15,6 +15,8 @@ Type-annotate store correctly.
 Remember that data can be a str, bytes, int or float.
 """
 
+
+import functools
 import redis
 import uuid
 import typing
@@ -24,6 +26,14 @@ from typing import Any
 from typing import Callable
 
 
+def count_calls(method: Callable )-> Callable:
+    """
+    decorator that takes a single
+    method Callable argument
+    and
+    returns a Callable.
+    """
+    return callable
 class Cache:
     """
 
@@ -65,17 +75,19 @@ class Cache:
             return fn(value) if value else value
         return value
 
-    def get_str(self):
+    def get_str(self, key: str) -> Union[str, None]:
         """
         get_str
         that will automatically parametrize
         Cache.get
         with the correct conversion function.
         """
+        return self.get(key, str)
 
-    def get_int(self):
+    def get_int(self, key: str) -> Union[str, None]:
         """
         get_int that will automatically parametrize
         Cache.get
         with the correct conversion function.
         """
+        return self.get(key, int)
