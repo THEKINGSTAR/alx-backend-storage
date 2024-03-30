@@ -48,7 +48,6 @@ class Cache:
         self._redis.set(key, data)
 
         return key
-
     def get(self, key: str, fn: callable):
         """
         get method that take a key string argument
@@ -61,9 +60,11 @@ class Cache:
         behavior if the key does not exist.
         """
 
+
+
     def get_str(self):
         """
-        get_str
+        get_str 
         that will automatically parametrize
         Cache.get
         with the correct conversion function.
