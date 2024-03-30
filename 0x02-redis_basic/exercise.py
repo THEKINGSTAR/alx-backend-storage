@@ -49,7 +49,7 @@ class Cache:
 
         return key
 
-    def get(self, key: str, fn: callable):
+    def get(self, key: str, fn: callable) -> Any:
         """
         get method that take a key string argument
         and
@@ -61,6 +61,8 @@ class Cache:
         behavior if the key does not exist.
         """
         value = self._redis.get(key)
+        if fn:
+            return fn(value) if value else value
         return value
 
     def get_str(self):
