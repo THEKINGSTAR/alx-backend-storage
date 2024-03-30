@@ -60,6 +60,8 @@ class Cache:
         Redis.get
         behavior if the key does not exist.
         """
+        value = self._redis.get(key)
+        return value
 
     def get_str(self):
         """
